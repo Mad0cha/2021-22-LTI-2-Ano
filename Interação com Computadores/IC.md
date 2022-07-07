@@ -1,0 +1,1 @@
+A disciplina foca-se no estudo dos conceitos, métodos e técnicas relacionadas com a concepção (design), avaliação e implementação de sistemas computacionais interativos, destinados a serem usados e explorados por pessoas.
