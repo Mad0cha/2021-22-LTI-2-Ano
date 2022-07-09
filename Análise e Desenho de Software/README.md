@@ -1,4 +1,4 @@
-Objectivos:
+Objectivos da Cadeira:
 
 - Identificar/definir os requisitos de um sistema
 - Proceder ao desenho de software centrado em objectos que satisfaça estes requisitos
