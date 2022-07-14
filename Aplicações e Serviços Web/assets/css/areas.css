@@ -1,0 +1,61 @@
+.dashboard{
+    margin-top: 150px;
+}
+
+.seg1, .seg2, .ter1, .ter2, .qua1, .qua2, .qui1, .qui2, .sex1, .sex2, .sab1, .sab2, .dom1, .dom2{
+    margin-left: 52px;
+
+}
+
+.fotos{
+    width: 10px;
+    height: 10px; 
+} 
+
+.rounded-circle{
+    width: 120px;
+    height: 120px;
+    max-width:100%;
+    max-height:100%;
+    object-fit: cover;
+}
+
+h2{
+    font-size:32px !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.h5{
+    color: black;
+    font-size: 20px;
+}
+
+hr{
+    margin-top:30px !important;
+}
+
+.guardar{
+    width:180px;
+    display:block;
+    margin:auto;
+}
+
+.btn-primary{
+    color: white;
+}
+
+.btn-primary:hover{
+    color: black;
+}
+
+select{
+    margin-left:6px;
+}
+
+.mt-5{
+    overflow: auto;
+}
