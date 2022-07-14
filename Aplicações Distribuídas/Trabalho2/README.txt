@@ -1,0 +1,1 @@
+- Neste trabalho os números de recursos passaram a ir de [1, N] 
