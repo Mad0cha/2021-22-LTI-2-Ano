@@ -1,0 +1,16 @@
+tfoot input {
+    width: 100%;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label select{
+    min-width: 50px;
+    margin: 0.3em;
+}
