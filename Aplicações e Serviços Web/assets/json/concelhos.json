@@ -1,0 +1,926 @@
+[
+ {
+  "nome": "Águeda"
+ },
+ {
+  "nome": "Albergaria-a-Velha"
+ },
+ {
+  "nome": "Anadia"
+ },
+ {
+  "nome": "Arouca"
+ },
+ {
+  "nome": "Aveiro"
+ },
+ {
+  "nome": "Castelo de Paiva"
+ },
+ {
+  "nome": "Espinho"
+ },
+ {
+  "nome": "Estarreja"
+ },
+ {
+  "nome": "Santa Maria da Feira"
+ },
+ {
+  "nome": "Ílhavo"
+ },
+ {
+  "nome": "Mealhada"
+ },
+ {
+  "nome": "Murtosa"
+ },
+ {
+  "nome": "Oliveira de Azeméis"
+ },
+ {
+  "nome": "Oliveira do Bairro"
+ },
+ {
+  "nome": "Ovar"
+ },
+ {
+  "nome": "São João da Madeira"
+ },
+ {
+  "nome": "Sever do Vouga"
+ },
+ {
+  "nome": "Vagos"
+ },
+ {
+  "nome": "Vale de Cambra"
+ },
+ {
+  "nome": "Aljustrel"
+ },
+ {
+  "nome": "Almodôvar"
+ },
+ {
+  "nome": "Alvito"
+ },
+ {
+  "nome": "Barrancos"
+ },
+ {
+  "nome": "Beja"
+ },
+ {
+  "nome": "Castro Verde"
+ },
+ {
+  "nome": "Cuba"
+ },
+ {
+  "nome": "Ferreira do Alentejo"
+ },
+ {
+  "nome": "Mértola"
+ },
+ {
+  "nome": "Moura"
+ },
+ {
+  "nome": "Odemira"
+ },
+ {
+  "nome": "Ourique"
+ },
+ {
+  "nome": "Serpa"
+ },
+ {
+  "nome": "Vidigueira"
+ },
+ {
+  "nome": "Amares"
+ },
+ {
+  "nome": "Barcelos"
+ },
+ {
+  "nome": "Braga"
+ },
+ {
+  "nome": "Cabeceiras de Basto"
+ },
+ {
+  "nome": "Celorico de Basto"
+ },
+ {
+  "nome": "Esposende"
+ },
+ {
+  "nome": "Fafe"
+ },
+ {
+  "nome": "Guimarães"
+ },
+ {
+  "nome": "Póvoa de Lanhoso"
+ },
+ {
+  "nome": "Terras de Bouro"
+ },
+ {
+  "nome": "Vieira do Minho"
+ },
+ {
+  "nome": "Vila Nova de Famalicão"
+ },
+ {
+  "nome": "Vila Verde"
+ },
+ {
+  "nome": "Vizela"
+ },
+ {
+  "nome": "Alfândega da Fé"
+ },
+ {
+  "nome": "Bragança"
+ },
+ {
+  "nome": "Carrazeda de Ansiães"
+ },
+ {
+  "nome": "Freixo de Espada à Cinta"
+ },
+ {
+  "nome": "Macedo de Cavaleiros"
+ },
+ {
+  "nome": "Miranda do Douro"
+ },
+ {
+  "nome": "Mirandela"
+ },
+ {
+  "nome": "Mogadouro"
+ },
+ {
+  "nome": "Torre de Moncorvo"
+ },
+ {
+  "nome": "Vila Flor"
+ },
+ {
+  "nome": "Vimioso"
+ },
+ {
+  "nome": "Vinhais"
+ },
+ {
+  "nome": "Belmonte"
+ },
+ {
+  "nome": "Castelo Branco"
+ },
+ {
+  "nome": "Covilhã"
+ },
+ {
+  "nome": "Fundão"
+ },
+ {
+  "nome": "Idanha-a-Nova"
+ },
+ {
+  "nome": "Oleiros"
+ },
+ {
+  "nome": "Penamacor"
+ },
+ {
+  "nome": "Proença-a-Nova"
+ },
+ {
+  "nome": "Sertã"
+ },
+ {
+  "nome": "Vila de Rei"
+ },
+ {
+  "nome": "Vila Velha de Ródão"
+ },
+ {
+  "nome": "Arganil"
+ },
+ {
+  "nome": "Cantanhede"
+ },
+ {
+  "nome": "Coimbra"
+ },
+ {
+  "nome": "Condeixa-a-Nova"
+ },
+ {
+  "nome": "Figueira da Foz"
+ },
+ {
+  "nome": "Góis"
+ },
+ {
+  "nome": "Lousã"
+ },
+ {
+  "nome": "Mira"
+ },
+ {
+  "nome": "Miranda do Corvo"
+ },
+ {
+  "nome": "Montemor-o-Velho"
+ },
+ {
+  "nome": "Oliveira do Hospital"
+ },
+ {
+  "nome": "Pampilhosa da Serra"
+ },
+ {
+  "nome": "Penacova"
+ },
+ {
+  "nome": "Penela"
+ },
+ {
+  "nome": "Soure"
+ },
+ {
+  "nome": "Tábua"
+ },
+ {
+  "nome": "Vila Nova de Poiares"
+ },
+ {
+  "nome": "Alandroal"
+ },
+ {
+  "nome": "Arraiolos"
+ },
+ {
+  "nome": "Borba"
+ },
+ {
+  "nome": "Estremoz"
+ },
+ {
+  "nome": "Évora"
+ },
+ {
+  "nome": "Montemor-o-Novo"
+ },
+ {
+  "nome": "Mora"
+ },
+ {
+  "nome": "Mourão"
+ },
+ {
+  "nome": "Portel"
+ },
+ {
+  "nome": "Redondo"
+ },
+ {
+  "nome": "Reguengos de Monsaraz"
+ },
+ {
+  "nome": "Vendas Novas"
+ },
+ {
+  "nome": "Viana do Alentejo"
+ },
+ {
+  "nome": "Vila Viçosa"
+ },
+ {
+  "nome": "Albufeira"
+ },
+ {
+  "nome": "Alcoutim"
+ },
+ {
+  "nome": "Aljezur"
+ },
+ {
+  "nome": "Castro Marim"
+ },
+ {
+  "nome": "Faro"
+ },
+ {
+  "nome": "Lagoa"
+ },
+ {
+  "nome": "Lagos"
+ },
+ {
+  "nome": "Loulé"
+ },
+ {
+  "nome": "Monchique"
+ },
+ {
+  "nome": "Olhão"
+ },
+ {
+  "nome": "Portimão"
+ },
+ {
+  "nome": "São Brás de Alportel"
+ },
+ {
+  "nome": "Silves"
+ },
+ {
+  "nome": "Tavira"
+ },
+ {
+  "nome": "Vila do Bispo"
+ },
+ {
+  "nome": "Vila Real de Santo António"
+ },
+ {
+  "nome": "Aguiar da Beira"
+ },
+ {
+  "nome": "Almeida"
+ },
+ {
+  "nome": "Celorico da Beira"
+ },
+ {
+  "nome": "Figueira de Castelo Rodrigo"
+ },
+ {
+  "nome": "Fornos de Algodres"
+ },
+ {
+  "nome": "Gouveia"
+ },
+ {
+  "nome": "Guarda"
+ },
+ {
+  "nome": "Manteigas"
+ },
+ {
+  "nome": "Mêda"
+ },
+ {
+  "nome": "Pinhel"
+ },
+ {
+  "nome": "Sabugal"
+ },
+ {
+  "nome": "Seia"
+ },
+ {
+  "nome": "Trancoso"
+ },
+ {
+  "nome": "Vila Nova de Foz Côa"
+ },
+ {
+  "nome": "Alcobaça"
+ },
+ {
+  "nome": "Alvaiázere"
+ },
+ {
+  "nome": "Ansião"
+ },
+ {
+  "nome": "Batalha"
+ },
+ {
+  "nome": "Bombarral"
+ },
+ {
+  "nome": "Caldas da Rainha"
+ },
+ {
+  "nome": "Castanheira de Pêra"
+ },
+ {
+  "nome": "Figueiró dos Vinhos"
+ },
+ {
+  "nome": "Leiria"
+ },
+ {
+  "nome": "Marinha Grande"
+ },
+ {
+  "nome": "Nazaré"
+ },
+ {
+  "nome": "Óbidos"
+ },
+ {
+  "nome": "Pedrógão Grande"
+ },
+ {
+  "nome": "Peniche"
+ },
+ {
+  "nome": "Pombal"
+ },
+ {
+  "nome": "Porto de Mós"
+ },
+ {
+  "nome": "Alenquer"
+ },
+ {
+  "nome": "Arruda dos Vinhos"
+ },
+ {
+  "nome": "Azambuja"
+ },
+ {
+  "nome": "Cadaval"
+ },
+ {
+  "nome": "Cascais"
+ },
+ {
+  "nome": "Lisboa"
+ },
+ {
+  "nome": "Loures"
+ },
+ {
+  "nome": "Lourinhã"
+ },
+ {
+  "nome": "Mafra"
+ },
+ {
+  "nome": "Oeiras"
+ },
+ {
+  "nome": "Sintra"
+ },
+ {
+  "nome": "Sobral de Monte Agraço"
+ },
+ {
+  "nome": "Torres Vedras"
+ },
+ {
+  "nome": "Vila Franca de Xira"
+ },
+ {
+  "nome": "Amadora"
+ },
+ {
+  "nome": "Odivelas"
+ },
+ {
+  "nome": "Alter do Chão"
+ },
+ {
+  "nome": "Arronches"
+ },
+ {
+  "nome": "Avis"
+ },
+ {
+  "nome": "Campo Maior"
+ },
+ {
+  "nome": "Castelo de Vide"
+ },
+ {
+  "nome": "Crato"
+ },
+ {
+  "nome": "Elvas"
+ },
+ {
+  "nome": "Fronteira"
+ },
+ {
+  "nome": "Gavião"
+ },
+ {
+  "nome": "Marvão"
+ },
+ {
+  "nome": "Monforte"
+ },
+ {
+  "nome": "Nisa"
+ },
+ {
+  "nome": "Ponte de Sor"
+ },
+ {
+  "nome": "Portalegre"
+ },
+ {
+  "nome": "Sousel"
+ },
+ {
+  "nome": "Amarante"
+ },
+ {
+  "nome": "Baião"
+ },
+ {
+  "nome": "Felgueiras"
+ },
+ {
+  "nome": "Gondomar"
+ },
+ {
+  "nome": "Lousada"
+ },
+ {
+  "nome": "Maia"
+ },
+ {
+  "nome": "Marco de Canaveses"
+ },
+ {
+  "nome": "Matosinhos"
+ },
+ {
+  "nome": "Paços de Ferreira"
+ },
+ {
+  "nome": "Paredes"
+ },
+ {
+  "nome": "Penafiel"
+ },
+ {
+  "nome": "Porto"
+ },
+ {
+  "nome": "Póvoa de Varzim"
+ },
+ {
+  "nome": "Santo Tirso"
+ },
+ {
+  "nome": "Valongo"
+ },
+ {
+  "nome": "Vila do Conde"
+ },
+ {
+  "nome": "Vila Nova de Gaia"
+ },
+ {
+  "nome": "Trofa"
+ },
+ {
+  "nome": "Abrantes"
+ },
+ {
+  "nome": "Alcanena"
+ },
+ {
+  "nome": "Almeirim"
+ },
+ {
+  "nome": "Alpiarça"
+ },
+ {
+  "nome": "Benavente"
+ },
+ {
+  "nome": "Cartaxo"
+ },
+ {
+  "nome": "Chamusca"
+ },
+ {
+  "nome": "Constância"
+ },
+ {
+  "nome": "Coruche"
+ },
+ {
+  "nome": "Entroncamento"
+ },
+ {
+  "nome": "Ferreira do Zêzere"
+ },
+ {
+  "nome": "Golegã"
+ },
+ {
+  "nome": "Mação"
+ },
+ {
+  "nome": "Rio Maior"
+ },
+ {
+  "nome": "Salvaterra de Magos"
+ },
+ {
+  "nome": "Santarém"
+ },
+ {
+  "nome": "Sardoal"
+ },
+ {
+  "nome": "Tomar"
+ },
+ {
+  "nome": "Torres Novas"
+ },
+ {
+  "nome": "Vila Nova da Barquinha"
+ },
+ {
+  "nome": "Ourém"
+ },
+ {
+  "nome": "Alcácer do Sal"
+ },
+ {
+  "nome": "Alcochete"
+ },
+ {
+  "nome": "Almada"
+ },
+ {
+  "nome": "Barreiro"
+ },
+ {
+  "nome": "Grândola"
+ },
+ {
+  "nome": "Moita"
+ },
+ {
+  "nome": "Montijo"
+ },
+ {
+  "nome": "Palmela"
+ },
+ {
+  "nome": "Santiago do Cacém"
+ },
+ {
+  "nome": "Seixal"
+ },
+ {
+  "nome": "Sesimbra"
+ },
+ {
+  "nome": "Setúbal"
+ },
+ {
+  "nome": "Sines"
+ },
+ {
+  "nome": "Arcos de Valdevez"
+ },
+ {
+  "nome": "Caminha"
+ },
+ {
+  "nome": "Melgaço"
+ },
+ {
+  "nome": "Monção"
+ },
+ {
+  "nome": "Paredes de Coura"
+ },
+ {
+  "nome": "Ponte da Barca"
+ },
+ {
+  "nome": "Ponte de Lima"
+ },
+ {
+  "nome": "Valença"
+ },
+ {
+  "nome": "Viana do Castelo"
+ },
+ {
+  "nome": "Vila Nova de Cerveira"
+ },
+ {
+  "nome": "Alijó"
+ },
+ {
+  "nome": "Boticas"
+ },
+ {
+  "nome": "Chaves"
+ },
+ {
+  "nome": "Mesão Frio"
+ },
+ {
+  "nome": "Mondim de Basto"
+ },
+ {
+  "nome": "Montalegre"
+ },
+ {
+  "nome": "Murça"
+ },
+ {
+  "nome": "Peso da Régua"
+ },
+ {
+  "nome": "Ribeira de Pena"
+ },
+ {
+  "nome": "Sabrosa"
+ },
+ {
+  "nome": "Santa Marta de Penaguião"
+ },
+ {
+  "nome": "Valpaços"
+ },
+ {
+  "nome": "Vila Pouca de Aguiar"
+ },
+ {
+  "nome": "Vila Real"
+ },
+ {
+  "nome": "Armamar"
+ },
+ {
+  "nome": "Carregal do Sal"
+ },
+ {
+  "nome": "Castro Daire"
+ },
+ {
+  "nome": "Cinfães"
+ },
+ {
+  "nome": "Lamego"
+ },
+ {
+  "nome": "Mangualde"
+ },
+ {
+  "nome": "Moimenta da Beira"
+ },
+ {
+  "nome": "Mortágua"
+ },
+ {
+  "nome": "Nelas"
+ },
+ {
+  "nome": "Oliveira de Frades"
+ },
+ {
+  "nome": "Penalva do Castelo"
+ },
+ {
+  "nome": "Penedono"
+ },
+ {
+  "nome": "Resende"
+ },
+ {
+  "nome": "Santa Comba Dão"
+ },
+ {
+  "nome": "São João da Pesqueira"
+ },
+ {
+  "nome": "São Pedro do Sul"
+ },
+ {
+  "nome": "Sátão"
+ },
+ {
+  "nome": "Sernancelhe"
+ },
+ {
+  "nome": "Tabuaço"
+ },
+ {
+  "nome": "Tarouca"
+ },
+ {
+  "nome": "Tondela"
+ },
+ {
+  "nome": "Vila Nova de Paiva"
+ },
+ {
+  "nome": "Viseu"
+ },
+ {
+  "nome": "Vouzela"
+ },
+ {
+  "nome": "Calheta"
+ },
+ {
+  "nome": "Câmara de Lobos"
+ },
+ {
+  "nome": "Funchal"
+ },
+ {
+  "nome": "Machico"
+ },
+ {
+  "nome": "Ponta do Sol"
+ },
+ {
+  "nome": "Porto Moniz"
+ },
+ {
+  "nome": "Ribeira Brava"
+ },
+ {
+  "nome": "Santa Cruz"
+ },
+ {
+  "nome": "Santana"
+ },
+ {
+  "nome": "São Vicente"
+ },
+ {
+  "nome": "Porto Santo"
+ },
+ {
+  "nome": "Vila do Porto"
+ },
+ {
+  "nome": "Lagoa"
+ },
+ {
+  "nome": "Nordeste"
+ },
+ {
+  "nome": "Ponta Delgada"
+ },
+ {
+  "nome": "Povoação"
+ },
+ {
+  "nome": "Ribeira Grande"
+ },
+ {
+  "nome": "Vila Franca do Campo"
+ },
+ {
+  "nome": "Angra do Heroísmo"
+ },
+ {
+  "nome": "Vila da Praia da Vitória"
+ },
+ {
+  "nome": "Santa Cruz da Graciosa"
+ },
+ {
+  "nome": "Calheta"
+ },
+ {
+  "nome": "Velas"
+ },
+ {
+  "nome": "Lajes do Pico"
+ },
+ {
+  "nome": "Madalena"
+ },
+ {
+  "nome": "São Roque do Pico"
+ },
+ {
+  "nome": "Horta"
+ },
+ {
+  "nome": "Lajes das Flores"
+ },
+ {
+  "nome": "Santa Cruz das Flores"
+ },
+ {
+  "nome": "Corvo"
+ }
+]
