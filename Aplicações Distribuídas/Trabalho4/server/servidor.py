@@ -12,8 +12,9 @@ import json
 from requests_oauthlib import OAuth2Session
 import ssl
 
-client_id = '78b27196688244c7b2be03b63292c8fe'
-client_secret = '812b5d45986045209abd4e1e732adb12'
+# A preencher com os dados desejados
+client_id = '...'
+client_secret = '...'
 
 redirect_uri= 'https://localhost:5000/callback'
 spotify = OAuth2Session(client_id, redirect_uri=redirect_uri)
