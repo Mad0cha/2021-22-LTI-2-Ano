@@ -13,9 +13,10 @@ import json
 app = Flask(__name__)
 
 # Dados para o spotify
-client_id = "78b27196688244c7b2be03b63292c8fe"
-client_secret = "812b5d45986045209abd4e1e732adb12"
-token_de_acesso = "BQAl0arLXtGE9th5Cv6J4z6XY2SaLOcerro5wG5PyaIE_OL94PlwldEjyoZqaxpao5r5jqjVpQtC526ejFT9AAttqtwqhzQW5WunPOqviGP009EMO3HwnDYcAVDBtAoYsZtsOTi0zAw"
+# A preencher com os dados desejados
+client_id = "..."
+client_secret = "..."
+token_de_acesso = "..."
 
 header = {"Authorization" : 'Bearer {token}'.format(token=token_de_acesso)}
 
