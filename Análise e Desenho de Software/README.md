@@ -10,3 +10,7 @@
     - Desenvolvimento iterativo (Unified Process)
     - Uso de padrões de desenho
     - Uso de padrões de software
+
+**Colaboradores no projeto** (Github username)
+
+<a href="https://github.com/RomuloNogueira02">RomuloNogueira02</a>
