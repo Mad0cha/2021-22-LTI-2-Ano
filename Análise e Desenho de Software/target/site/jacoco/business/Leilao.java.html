@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Leilao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Projecto Leilões Online</a> &gt; <a href="index.source.html" class="el_package">business</a> &gt; <span class="el_source">Leilao.java</span></div><h1>Leilao.java</h1><pre class="source lang-java linenums">package business;
+
+/**
+ * &lt;p&gt;Leilao class.&lt;/p&gt;
+ *
+ * @author Grupo12: MadalenaRodrigues_55853, PedroAlmeida_56897, RomuloNogueira_56935
+ * @version $Id: $Id
+ */
+
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+/**
+ * Classe que gere um leilao
+ *
+ */
+public class Leilao {
+	
+	private User user;
+	private TipoDeLeilao spec;
+	private Date dataFim;
+	private int precoBase;
+	private StatusDoLeilao statusLeilao; 
+	private Licitacao licitacaoAtual;
+	private User vencedor;
+	private Artigo artigo;
+	
+	/**
+	 * Construtor de um leilao
+	 *
+	 * @param spec O tipo de leilao que se trata
+	 * @param user O vendedor que esta a organizar o leilao
+	 * @param art  O artigo a ser leiloado
+	 */
+<span class="fc" id="L36">	public Leilao(String spec, User user, Artigo art) {</span>
+		
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">		if (spec.toLowerCase().equals(&quot;normal&quot;)) {</span>
+<span class="fc" id="L39">			this.spec = TipoDeLeilao.Normal;</span>
+			
+<span class="nc bnc" id="L41" title="All 2 branches missed.">		}else if(spec.toLowerCase().equals(&quot;invertido&quot;)) {</span>
+<span class="nc" id="L42">			this.spec = TipoDeLeilao.Invertido;</span>
+			
+<span class="nc bnc" id="L44" title="All 2 branches missed.">		}else if(spec.toLowerCase().equals(&quot;cego&quot;)) {</span>
+<span class="nc" id="L45">			this.spec = TipoDeLeilao.Cego;</span>
+		}
+<span class="fc" id="L47">		this.user = user;</span>
+<span class="fc" id="L48">		this.statusLeilao = StatusDoLeilao.Criado;</span>
+<span class="fc" id="L49">		this.artigo = art;</span>
+<span class="fc" id="L50">	}</span>
+	
+	
+	/**
+	 * Os seguintes metodos sao getters e servem para obter 
+	 * informacao relativa ao leilao
+	 */
+	
+	
+	/**
+	 * Metodo para obter o utilizador responsavel pelo leilao
+	 *
+	 * @return utilizador responsavel pelo leilao
+	 */
+<span class="fc" id="L64">	public User obtemUser() { return this.user; }</span>
+	
+	
+	/**
+	 * Metodo para obter o tipo do leilao
+	 *
+	 * @return o tipo do leilao
+	 */
+<span class="fc" id="L72">	public TipoDeLeilao obtemSpec() { return this.spec; }</span>
+	
+	
+	/**
+	 * Metodo para obter a data de fecho do leilao
+	 *
+	 * @return a data de fecho do leilao
+	 */
+<span class="fc" id="L80">	public Date obtemDataFim() { return this.dataFim; }</span>
+	
+	
+	/**
+	 * Metodo para obter o pre�o base do leilao
+	 *
+	 * @return o pre�o base do leilao
+	 */
+<span class="fc" id="L88">	public int obtemPrecoBase() { return this.precoBase; }</span>
+	
+	
+	/**
+	 * Metodo para obter o estado do leilao
+	 *
+	 * @return o estado atual do leilao
+	 */
+<span class="fc" id="L96">	public StatusDoLeilao obtemStatusLeilao() { return this.statusLeilao; }</span>
+	
+	
+	/**
+	 * Metodo para obter a ultima licitacao feita no leilao
+	 *
+	 * @return a ultima licitacao feita no leilao
+	 */
+<span class="fc" id="L104">	public Licitacao obtemUltimaLicitacao() { return this.licitacaoAtual; }</span>
+	
+	
+	/**
+	 * Metodo para obter o artigo que esta' a ser leiloado
+	 *
+	 * @return o artigo que esta' a ser leiloado
+	 */
+<span class="fc" id="L112">	public Artigo obtemArtigo() { return this.artigo; }</span>
+	
+	
+	/**
+	 * Configura o leilao atribuindo-lhe uma data para
+	 * terminar e um preco base para iniciar as licitacoes
+	 *
+	 * @param dataFim   Data em que termina o leil�o
+	 * 					Deve seguir o formato: dia/mes/ano hora:minutos:segundos
+	 * @param precoBase Preco onde se iniciao as licitacoes
+	 */
+	public void configura(String dataFim, int precoBase) { 
+		
+<span class="fc" id="L125">		SimpleDateFormat dateParser = new SimpleDateFormat(&quot;dd/MM/yyyy HH:mm:ss&quot;);</span>
+		try {
+<span class="fc" id="L127">			this.dataFim = dateParser.parse(dataFim);</span>
+			
+<span class="nc" id="L129">		} catch (ParseException e) {</span>
+<span class="nc" id="L130">			e.printStackTrace();</span>
+<span class="fc" id="L131">		}</span>
+		
+<span class="fc" id="L133">		this.precoBase = precoBase;</span>
+<span class="fc" id="L134">		this.statusLeilao = StatusDoLeilao.Configurado;</span>
+<span class="fc" id="L135">	}</span>
+	
+	
+	/**
+	 * Publica o leilao, alterando o seu estado para &quot;A decorrer&quot;
+	 */
+	public void publica() {
+		
+<span class="fc" id="L143">		this.statusLeilao = StatusDoLeilao.Decorrer;</span>
+<span class="fc" id="L144">	}</span>
+	
+	
+	/**
+	 * Verifica se uma licitacao l e' valida
+	 *
+	 * @param l   licitacao que se pretende validar
+	 * @return    True se for valida, False se nao for
+	 */
+	public boolean validaLicitacao(Licitacao l) {
+
+<span class="fc bfc" id="L155" title="All 2 branches covered.">		if (this.user.validaVendedor()) {</span>
+			
+<span class="fc bfc" id="L157" title="All 4 branches covered.">			if (l.obtemTimestamp().before(this.dataFim) &amp;&amp; l.obtemQuantia() &gt; this.precoBase) {</span>
+				
+<span class="fc bfc" id="L159" title="All 2 branches covered.">				if (this.licitacaoAtual != null) {</span>
+<span class="pc bpc" id="L160" title="1 of 2 branches missed.">					if (l.obtemQuantia() &gt; this.licitacaoAtual.obtemQuantia()) {</span>
+<span class="nc" id="L161">						return true;</span>
+					}else {
+<span class="fc" id="L163">						System.out.println(&quot;A licita��o n�o foi efetuada, pois existe uma maior&quot;);</span>
+<span class="fc" id="L164">						return false;</span>
+					}
+				}else {
+<span class="fc" id="L167">					return true;</span>
+				}
+				
+			}else {
+<span class="fc bfc" id="L171" title="All 2 branches covered.">				if (l.obtemQuantia() &lt;= this.precoBase) {</span>
+<span class="fc" id="L172">					System.out.println(&quot;A licita��o n�o foi efetuada, pois a sua licita��o foi menor ou igual ao pre�o base do leil�o&quot;);</span>
+<span class="fc" id="L173">					return false;</span>
+				}else {
+<span class="fc" id="L175">					System.out.println(&quot;A licita��o n�o foi efetuada, pois o leil�o j� terminou&quot;);</span>
+<span class="fc" id="L176">					this.fechar();</span>
+<span class="fc" id="L177">					return false;</span>
+				}
+			}
+		}
+<span class="fc" id="L181">		System.out.println(&quot;A licita��o n�o foi efetuada, pois o Vendedor est� com uma m� reputa��o&quot;);</span>
+<span class="fc" id="L182">		this.fechar();</span>
+<span class="fc" id="L183">		return false;</span>
+	}
+	
+	
+	/**
+	 * Concretiza a licitacao
+	 *
+	 * @param l   licitacao a concretizar
+	 */
+	public void concretizaLicitacao(Licitacao l) {
+		
+<span class="fc" id="L194">		this.licitacaoAtual = l;</span>
+<span class="fc" id="L195">	}</span>
+	
+	
+	/**
+	 * Metodo encarregue por fechar corretamente o leilao
+	 * verificando a reputacao do vendedor antes de o fazer
+	 * para poder encerra-lo ou invalida-lo.
+	 */
+	public void fechar() {
+		
+<span class="fc bfc" id="L205" title="All 2 branches covered.">		if (this.user.validaVendedor()) {</span>
+<span class="fc" id="L206">			System.out.println(&quot;O leil�o foi encerrado com sucesso!&quot;);</span>
+<span class="fc" id="L207">			this.statusLeilao = StatusDoLeilao.Terminado;</span>
+<span class="pc bpc" id="L208" title="1 of 2 branches missed.">			if (this.licitacaoAtual != null) {</span>
+<span class="nc" id="L209">				this.vencedor = this.licitacaoAtual.obtemUser();</span>
+<span class="nc" id="L210">				System.out.println(&quot;O vencedor do leil�o foi: \n&quot; + this.vencedor.toString());</span>
+<span class="nc" id="L211">				System.out.println(&quot;Com a licita��o final num valor de: &quot; + this.licitacaoAtual.obtemQuantia());</span>
+			}else {
+<span class="fc" id="L213">				System.out.println(&quot;N�o houve vencedor...&quot;);</span>
+			}
+			
+		}else {
+<span class="fc" id="L217">			this.statusLeilao = StatusDoLeilao.Inv�lido;</span>
+<span class="fc" id="L218">			System.out.println(&quot;O leil�o encontra-se invalidado devido � m� reputa��o do vendedor. E por isso n�o � apurado um vencedor&quot;);</span>
+		}
+		
+<span class="fc" id="L221">	}</span>
+	
+	
+	/**
+	 * Metodo que arquiva o leilao
+	 */
+<span class="nc" id="L227">	public void arquivar() { this.statusLeilao = StatusDoLeilao.Arquivado; }</span>
+	
+	
+	/**
+	 * Metodo que retorna o vencedor do leilao
+	 *
+	 * @return   User vencedor do leilao
+	 */
+<span class="nc" id="L235">	public User getVencedor() { return vencedor; }</span>
+	
+	
+	/**
+	 * Devolve uma representa�ao textual do leilao
+	 *
+	 * @return Informacao sobre o leilao
+	 */
+	public String toString() {
+		
+<span class="nc" id="L245">		StringBuilder s = new StringBuilder();</span>
+<span class="nc" id="L246">		s.append(&quot;Nome do vendedor: &quot; + this.user.obtemNome() + &quot;\n&quot;);</span>
+<span class="nc" id="L247">		s.append(&quot;Tipo de leil�o: &quot; + this.spec.name() + &quot;\n&quot;);</span>
+<span class="nc" id="L248">		s.append(&quot;Status do leil�o: &quot; + this.statusLeilao.name() + &quot;\n&quot;);</span>
+<span class="nc" id="L249">		s.append(&quot;Artigo a ser leiloado: &quot; + this.artigo.obtemDescricao()+ &quot;\n&quot;);</span>
+<span class="nc bnc" id="L250" title="All 2 branches missed.">		if (this.statusLeilao.equals(StatusDoLeilao.Inv�lido)){</span>
+<span class="nc" id="L251">			s.append(&quot;Este leil�o j� n�o � v�lido devido � m� reputa��o do vendedor.&quot;);</span>
+		}else {
+<span class="nc bnc" id="L253" title="All 2 branches missed.">			if (dataFim == null) {</span>
+<span class="nc" id="L254">				s.append(&quot;Fim do leil�o: N�o definido. \n&quot;);	</span>
+			}else {
+<span class="nc" id="L256">				SimpleDateFormat dateFormatter = new SimpleDateFormat(&quot;dd/MM/yyyy HH:mm:ss&quot;);</span>
+<span class="nc" id="L257">				s.append(&quot;Fim do leil�o: &quot; + dateFormatter.format(this.dataFim) + &quot;\n&quot;);	</span>
+			}
+<span class="nc" id="L259">			s.append(&quot;Pre�o base: &quot; + this.precoBase + &quot;\n&quot;);</span>
+<span class="nc bnc" id="L260" title="All 4 branches missed.">			if (this.licitacaoAtual != null &amp;&amp; this.vencedor == null) {</span>
+<span class="nc" id="L261">				s.append(&quot;Licita��o atual: \n&quot; + this.licitacaoAtual.toString());</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">			}else if (this.vencedor != null){</span>
+<span class="nc" id="L263">				s.append(&quot;O vencedor do leil�o foi: \n&quot; + this.vencedor.toString());</span>
+<span class="nc" id="L264">				s.append(&quot;Licita��o final: &quot; + this.licitacaoAtual.obtemQuantia());</span>
+			}else {
+<span class="nc" id="L266">				s.append(&quot;Licita��o atual: Ainda n�o houveram licita��es&quot;);</span>
+			}
+		}
+<span class="nc" id="L269">		return s.toString();</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

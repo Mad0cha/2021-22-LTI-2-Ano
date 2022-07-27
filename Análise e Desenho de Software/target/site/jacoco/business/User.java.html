@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Projecto Leilões Online</a> &gt; <a href="index.source.html" class="el_package">business</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package business;
+
+/**
+ * &lt;p&gt;User class.&lt;/p&gt;
+ *
+ * @author Grupo12: MadalenaRodrigues_55853, PedroAlmeida_56897, RomuloNogueira_56935
+ * @version $Id: $Id
+ */
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Map.Entry;
+
+/**
+ * Classe que gere um utilizador (comprador ou vendedor)
+ *
+ */
+public class User {
+	
+	private static int contadorIds;
+	private int idUser;
+	private String nome;
+	private List&lt;Reputacao&gt; reputacoes;
+	private CatalogoDeLeiloes catalogoDeLeiloes;
+	private List&lt;Artigo&gt; artigos;
+	
+	
+	/**
+	 * Construtor de um utilizador, seja ele comprador ou vendedor
+	 *
+	 * @param nome Nome do utilizador
+	 */
+<span class="fc" id="L35">	public User(String nome) {</span>
+		
+<span class="fc" id="L37">		User.contadorIds++;</span>
+<span class="fc" id="L38">		this.idUser = User.contadorIds;</span>
+<span class="fc" id="L39">		this.nome = nome;</span>
+<span class="fc" id="L40">		this.catalogoDeLeiloes = new CatalogoDeLeiloes();</span>
+<span class="fc" id="L41">		this.artigos = new ArrayList&lt;Artigo&gt;();</span>
+<span class="fc" id="L42">		this.reputacoes = new ArrayList&lt;Reputacao&gt;();</span>
+<span class="fc" id="L43">	}</span>
+	
+	
+	/**
+	 * Metodo para obter o id do utilizador
+	 *
+	 * @return o id do utilizador
+	 */
+<span class="fc" id="L51">	public int obtemId() { return this.idUser; }</span>
+	
+	
+	/**
+	 * Metodo para obter o nome do utilizador
+	 *
+	 * @return o nome do utilizador
+	 */
+<span class="nc" id="L59">	public String obtemNome() { return this.nome; }</span>
+	
+	
+	/**
+	 * Obtem a reputacao do utilizador, esta e' a media das
+	 * reputacoes dadas pelos compradores e pelos vendedores.
+	 * Se nao tiver reputacao ainda, esta sera definida como
+	 * NAO_TEM.
+	 *
+	 * @return A reputa��o do utilizador
+	 */
+	public Reputacao obtemReputacao() {
+		
+<span class="fc bfc" id="L72" title="All 2 branches covered.">		if(reputacoes.size() == 0)</span>
+<span class="fc" id="L73">			return Reputacao.NAO_TEM;</span>
+<span class="fc" id="L74">		double res = 0;</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">		for(Reputacao rep : reputacoes) {</span>
+<span class="fc" id="L76">			res += ((double)rep.getValor()) / reputacoes.size();</span>
+<span class="fc" id="L77">		}</span>
+<span class="fc" id="L78">		return Reputacao.getReputacao((int)Math.round(res));</span>
+	}
+	
+	
+	/**
+	 * Metodo para obter o leilao com id: idLeilao do catalogo de leiloes
+	 *
+	 * @param idLeilao id do leilao que queremos obter
+	 * @return o leil�o correspondente
+	 */
+<span class="fc" id="L88">	public Leilao obtemLeilao(int idLeilao) { return this.catalogoDeLeiloes.obtemLeilao(idLeilao); }</span>
+	
+	
+	/**
+	 * Metodo que imprime os leiloes do user que estao no catalogo de leiloes
+	 */
+	public void imprimirMeusLeiloes() {
+		
+<span class="nc" id="L96">		HashMap&lt;Integer, Leilao&gt; e = catalogoDeLeiloes.obtemLeiloesVendedor(this.idUser);</span>
+
+<span class="nc bnc" id="L98" title="All 2 branches missed.">		if (e.size() == 0) {</span>
+<span class="nc" id="L99">			System.out.println(&quot;N�o tem nenhum leil�o criado no cat�logo de leil�es&quot;);</span>
+		}else {
+<span class="nc" id="L101">			System.out.println(&quot;Meus leil�es:&quot;);</span>
+<span class="nc" id="L102">			System.out.println();</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">			for (Entry&lt;Integer, Leilao&gt; r : e.entrySet()) {</span>
+<span class="nc" id="L104">				System.out.println(&quot;Id Leil�o: &quot; + r.getKey());</span>
+<span class="nc" id="L105">				System.out.println(r.getValue().toString());</span>
+<span class="nc" id="L106">				System.out.println(&quot;\n&quot;);</span>
+<span class="nc" id="L107">			}</span>
+		}
+<span class="nc" id="L109">	}</span>
+	
+	
+	/**
+	 * Metodo para imprimir os artigos do utilizador
+	 */
+	public void imprimirMeusArtigos() {
+<span class="nc" id="L116">		System.out.println(&quot;Meus artigos:&quot;);</span>
+<span class="nc" id="L117">		System.out.println();</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">		if (this.artigos.size() == 0) {</span>
+<span class="nc" id="L119">			System.out.println(&quot;N�o tem nenhum artigo no cat�logo de artigos&quot;);</span>
+		}else {
+<span class="nc bnc" id="L121" title="All 2 branches missed.">			for (int i = 0; i &lt; this.artigos.size(); i++) {</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">				if(this.artigos.get(i).obtemUser().obtemId() == this.obtemId()) {</span>
+<span class="nc" id="L123">					System.out.println(this.artigos.get(i).toString());</span>
+<span class="nc" id="L124">					System.out.println(&quot;\n&quot;);</span>
+				}
+			}
+		}
+<span class="nc" id="L128">	}</span>
+	
+	
+	/**
+	 * Metodo para obter todos os leiloes do catalogo de leiloes
+	 *
+	 * @return Representa��o textual de todos os leiloes no catalogo de leiloes
+	 */
+<span class="nc" id="L136">	public String obtemLeiloes() { return this.catalogoDeLeiloes.toString(); }</span>
+
+	
+    /**
+     * Metodo para obter todos os artigos do utilizador
+     *
+     * @return Lista de artigos do utilizador
+     */
+<span class="nc" id="L144">    public List&lt;Artigo&gt; obtemArtigos() {return this.artigos;}</span>
+    	
+	
+	/**
+	 * Metodo que valida um utilizador verificando se a
+	 * sua reputacao e' boa, ou seja, diferente de MA
+	 *
+	 * @return True se for diferente de MA, False caso contrario
+	 */
+<span class="fc bfc" id="L153" title="All 2 branches covered.">	public boolean validaVendedor() { return obtemReputacao() != Reputacao.MA; }</span>
+	
+	
+	/**
+	 * Adiciona o artigo `a lista de artigos do utilizador
+	 *
+	 * @param descricao Descricao do artigo
+	 * @return o id do artigo
+	 */
+	public Integer criarArtigo(String descricao) {
+		
+<span class="fc" id="L164">		Artigo art = new Artigo(descricao, this ,this.artigos.size());</span>
+<span class="fc" id="L165">		this.artigos.add(art);</span>
+<span class="fc" id="L166">		System.out.println(&quot;O artigo foi adicionado com sucesso&quot;);</span>
+<span class="fc" id="L167">		return art.obtemId();</span>
+	}
+	
+	
+	/**
+	 * Retira os artigos invalidos ou seja id=-1, da lista de artigos do utilizador
+	 */
+	public void retiraInvalidos() {
+		
+<span class="fc" id="L176">		ArrayList&lt;Artigo&gt; novo = new ArrayList&lt;Artigo&gt;();</span>
+<span class="fc" id="L177">		int i = 0;</span>
+<span class="fc bfc" id="L178" title="All 2 branches covered.">		for (Artigo a: this.artigos) {</span>
+<span class="pc bpc" id="L179" title="1 of 2 branches missed.">			if (a.obtemId() != -1) {</span>
+<span class="nc" id="L180">				novo.add(a);</span>
+<span class="nc" id="L181">				a.alteraId(i);</span>
+<span class="nc" id="L182">				i++;</span>
+			}
+<span class="fc" id="L184">		}</span>
+<span class="fc" id="L185">		this.artigos = novo;</span>
+<span class="fc" id="L186">	}</span>
+	
+	
+	/**
+	 * Cria um leilao para o artigo com idArtigo e com a descricao spec
+	 *
+	 * @param spec      Descricao do artigo
+	 * @param idArtigo  Id do artigo a leiloar
+	 * @return          id do leil�o
+	 */
+	public Integer criarLeilao(String spec, int idArtigo) {
+		
+		try {
+			
+<span class="fc" id="L200">			Artigo art = this.artigos.get(idArtigo);</span>
+
+<span class="pc bpc" id="L202" title="1 of 2 branches missed.">			if (this.validaVendedor()) {</span>
+<span class="fc" id="L203">				Leilao l = new Leilao(spec, this, art);</span>
+<span class="fc" id="L204">				System.out.println(&quot;O seu leil�o foi criado com sucesso!&quot;);</span>
+<span class="fc" id="L205">				return this.catalogoDeLeiloes.adicionaLeilao(l);</span>
+			}else {
+<span class="nc" id="L207">				System.out.println(&quot;O seu leil�o n�o foi criado pois a sua reputa��o est� no nivel mau&quot;);</span>
+<span class="nc" id="L208">				return -1;</span>
+			}
+<span class="fc" id="L210">		}catch (Exception e){</span>
+<span class="fc bfc" id="L211" title="All 2 branches covered.">			if (this.artigos.size() == 0) {</span>
+<span class="fc" id="L212">				System.out.println(&quot;O seu leil�o n�o foi criado pois n�o tem nenhum artigo no seu cat�logo de artigos&quot;);</span>
+<span class="fc" id="L213">				return -1;</span>
+<span class="pc bpc" id="L214" title="1 of 2 branches missed.">			}else if (idArtigo == 0) {</span>
+<span class="nc" id="L215">				System.out.println(&quot;O seu leil�o n�o foi criado pois o artigo j� foi leiloado&quot;);</span>
+<span class="nc" id="L216">				return -1;	</span>
+			}else {
+<span class="fc" id="L218">				System.out.println(&quot;O seu leil�o n�o foi criado pois n�o tem nenhum artigo com o id: &quot; + idArtigo + &quot;, consulte os seus artigos.&quot;);</span>
+<span class="fc" id="L219">				return -1;</span>
+			}
+		}
+		
+	}
+	
+	
+	/**
+	 * Configura um leilao de id idLeilao atribuindo-lhe uma data para
+	 * terminar: dataFim e um preco onde iniciar as licitacoes: precoBase
+	 *
+	 * @param idLeilao  Id do leilao a configurar
+	 * @param dataFim   Data em que se encerra o leilao
+	 * @param precoBase Preco em que se inicia o leilao
+	 */
+	public void configurarLeilao(Integer idLeilao, String dataFim, int precoBase) {
+		
+		try{
+<span class="fc" id="L237">			Leilao l = catalogoDeLeiloes.obtemLeilao(idLeilao);</span>
+<span class="fc bfc" id="L238" title="All 2 branches covered.">			if (l.obtemUser().obtemId() != this.idUser) {</span>
+<span class="fc" id="L239">				System.out.println(&quot;N�o tem autoridade para configurar este leil�o&quot;);</span>
+<span class="pc bpc" id="L240" title="1 of 2 branches missed.">			}else if(l.obtemStatusLeilao() == StatusDoLeilao.Criado) {</span>
+<span class="fc" id="L241">				l.configura(dataFim, precoBase);</span>
+<span class="fc" id="L242">				System.out.println(&quot;O leil�o foi configurado com sucesso!&quot;);</span>
+			}else {
+<span class="nc" id="L244">					System.out.println(&quot;O leil�o n�o est� no estado: Criado, e por isso n�o pode ser configurado&quot;);</span>
+			}
+<span class="nc" id="L246">		}catch (Exception e) {</span>
+<span class="nc bnc" id="L247" title="All 2 branches missed.">			if (this.catalogoDeLeiloes.obtemLeiloesVendedor(this.idUser).size() == 0) {</span>
+<span class="nc" id="L248">				System.out.println(&quot;O seu leil�o n�o foi configurado pois n�o tem nenhum leil�o criado.&quot;);</span>
+			}else {
+<span class="nc" id="L250">				System.out.println(&quot;O seu leil�o n�o foi configurado pois n�o existe nenhum leil�o com o id: &quot; + idLeilao + &quot;, consulte os seus leil�es.&quot;);</span>
+			}
+<span class="fc" id="L252">		}</span>
+
+<span class="fc" id="L254">	}</span>
+	
+	
+	/**
+	 * Publica o leilao com idLeilao
+	 *
+	 * @param idLeilao  Id do leilao a publicar
+	 */
+	public void publicaLeilao(Integer idLeilao) {
+		
+		try{
+<span class="fc" id="L265">			Leilao l = catalogoDeLeiloes.obtemLeilao(idLeilao);</span>
+<span class="pc bpc" id="L266" title="1 of 2 branches missed.">			if (l.obtemUser().obtemId() != this.idUser) {</span>
+<span class="nc" id="L267">				System.out.println(&quot;N�o tem autoridade para publicar este leil�o&quot;);</span>
+<span class="pc bpc" id="L268" title="1 of 2 branches missed.">			}else if(l.obtemStatusLeilao() != StatusDoLeilao.Configurado) {</span>
+<span class="nc" id="L269">				System.out.println(&quot;O leil�o n�o est� no estado: Configurado, e por isso n�o pode ser publicado&quot;);</span>
+			}else {
+<span class="fc" id="L271">				l.publica();</span>
+<span class="fc" id="L272">				System.out.println(&quot;O leil�o foi publicado com sucesso!&quot;);</span>
+			}
+<span class="nc" id="L274">		}catch (Exception e) {</span>
+<span class="nc bnc" id="L275" title="All 2 branches missed.">			if (this.catalogoDeLeiloes.obtemLeiloesVendedor(this.idUser).size() == 0) {</span>
+<span class="nc" id="L276">				System.out.println(&quot;O seu leil�o n�o foi configurado pois n�o tem nenhum leil�o criado.&quot;);</span>
+			}else {
+<span class="nc" id="L278">				System.out.println(&quot;O seu leil�o n�o foi publicado pois n�o existe nenhum leil�o com o id: &quot; + idLeilao + &quot;, consulte os seus leil�es.&quot;);</span>
+			}
+<span class="fc" id="L280">		}</span>
+<span class="fc" id="L281">	}</span>
+
+	
+	/**
+	 * Concretiza uma licitacao no leilao com idLeilao
+	 *
+	 * @param idLeilao  Id do leilao onde se vai licitar
+	 * @param quantia   Quantia a ser licitada
+	 */
+	public void licitarLeilao(Integer idLeilao, int quantia) {
+		
+		try {
+<span class="fc" id="L293">			Leilao l = catalogoDeLeiloes.obtemLeilao(idLeilao);</span>
+			
+<span class="pc bpc" id="L295" title="1 of 2 branches missed.">			if (l.obtemUser().obtemId() == this.idUser) {</span>
+<span class="nc" id="L296">				System.out.println(&quot;N�o pode licitar no seu pr�prio leil�o&quot;);</span>
+<span class="pc bpc" id="L297" title="1 of 2 branches missed.">			}else if(l.obtemStatusLeilao() != StatusDoLeilao.Decorrer) {</span>
+<span class="nc" id="L298">				System.out.println(&quot;O leil�o n�o est� no estado: 'A decorrer', e por isso n�o pode licitar&quot;);</span>
+<span class="pc bpc" id="L299" title="1 of 2 branches missed.">			}else if (l.obtemStatusLeilao() == StatusDoLeilao.Inv�lido) {</span>
+<span class="nc" id="L300">				System.out.println(&quot;O leil�o � inv�lido, devido � m� reputa��o do vendedor&quot;);</span>
+			}else {
+<span class="fc" id="L302">				Licitacao licitacao = new Licitacao(this, quantia, l);</span>
+<span class="fc bfc" id="L303" title="All 2 branches covered.">				if(l.validaLicitacao(licitacao)) {</span>
+<span class="fc" id="L304">					l.concretizaLicitacao(licitacao);</span>
+<span class="fc" id="L305">					System.out.println(&quot;A licita��o foi feita com sucesso!&quot;);</span>
+				}
+			}
+<span class="nc" id="L308">		}catch (Exception e) {</span>
+<span class="nc" id="L309">			System.out.println(&quot;A licita��o n�o foi efetuada pois o leil�o com o id: &quot; + idLeilao + &quot; n�o existe, consulte os leil�es ativos no Cat�logo de Leil�es.&quot;);</span>
+<span class="fc" id="L310">		}</span>
+<span class="fc" id="L311">	}</span>
+	
+	
+	/**
+	 * Encerra o leilao com idLeilao
+	 *
+	 * @param idLeilao  Id do leilao a encerrar
+	 */
+	public void encerraLeilao(Integer idLeilao) {
+		
+		try {
+<span class="fc" id="L322">			Leilao l = catalogoDeLeiloes.obtemLeilao(idLeilao);</span>
+<span class="pc bpc" id="L323" title="1 of 2 branches missed.">			if (l.obtemUser().obtemId() != this.idUser) {</span>
+<span class="nc" id="L324">				System.out.println(&quot;N�o tem autoridade para encerrar este leil�o&quot;);</span>
+<span class="fc bfc" id="L325" title="All 2 branches covered.">			}else if(l.obtemStatusLeilao() != StatusDoLeilao.Decorrer) {</span>
+<span class="fc" id="L326">				System.out.println(&quot;O leil�o n�o est� no estado: A decorrer, e por isso n�o pode ser encerrado&quot;);</span>
+			}else {
+<span class="fc" id="L328">				l.fechar();</span>
+				////////////////////////////////////////////////////////////////////
+<span class="fc" id="L330">				Artigo artigo = l.obtemArtigo();</span>
+<span class="fc" id="L331">				artigo.invalidaArtigo();</span>
+
+<span class="fc" id="L333">				this.retiraInvalidos();</span>
+				
+			}
+<span class="nc" id="L336">		}catch (Exception e) {</span>
+<span class="nc" id="L337">			System.out.println(&quot;O leil�o n�o foi encerrado pois o leil�o com o id: &quot; + idLeilao + &quot; n�o existe, consulte os leil�es ativos no Cat�logo de Leil�es.&quot;);</span>
+<span class="fc" id="L338">		}</span>
+<span class="fc" id="L339">	}</span>
+	
+	
+	/**
+	 * Arquiva o leilao com idLeilao
+	 *
+	 * @param idLeilao  Id do leilao a arquivar
+	 */
+	public void arquivaLeilao(Integer idLeilao) {
+		
+<span class="nc" id="L349">		Leilao l = catalogoDeLeiloes.obtemLeilao(idLeilao);</span>
+<span class="nc bnc" id="L350" title="All 2 branches missed.">		if (l.obtemUser().obtemId() != this.idUser) {</span>
+<span class="nc" id="L351">			System.out.println(&quot;N�o tem autoridade para arquivar este leil�o&quot;);</span>
+<span class="nc bnc" id="L352" title="All 2 branches missed.">		}else if(l.obtemStatusLeilao() != StatusDoLeilao.Terminado) {</span>
+<span class="nc" id="L353">			System.out.println(&quot;O leil�o n�o est� no estado: Terminado, e por isso n�o pode ser encerrado&quot;);</span>
+		}else {
+<span class="nc" id="L355">			l.arquivar();</span>
+<span class="nc" id="L356">			System.out.println(&quot;O leil�o foi arquivado com sucesso!&quot;);</span>
+		}
+<span class="nc" id="L358">	}</span>
+	
+
+	/**
+	 * Adiciona a um reputacao rep `a lista de reputacoes do user
+	 *
+	 * @param rep  reputacao a adicionar `a lista de reputacoes
+	 */
+<span class="fc" id="L366">	public void adicionaReputacao(Reputacao rep) { reputacoes.add(rep); }</span>
+	
+	
+	/**
+	 * Devolve uma representacao textual do utilizador
+	 *
+	 * @return Informacao sobre o utilizador
+	 */
+	public String toString() {
+		
+<span class="nc" id="L376">		StringBuilder s = new StringBuilder();</span>
+<span class="nc" id="L377">		s.append(&quot;Nome: &quot; + this.nome + &quot;\n&quot;);</span>
+<span class="nc" id="L378">		s.append(&quot;Id: &quot; + this.idUser + &quot;\n&quot;);</span>
+<span class="nc" id="L379">		s.append(&quot;Reputa��o: &quot; + this.obtemReputacao() + &quot;\n&quot;);</span>
+<span class="nc" id="L380">		return s.toString();	</span>
+	}
+
+
+	/**
+	 * Formulario para avaliar o utilizador
+	 *
+	 * @param ler       Avaliacao atribuida
+	 * @param leilaoId  Id do leilao em que se avalia o user
+	 * @return 			Reputacao do utilizador
+	 */
+	public Reputacao formularioReputacaoInterativo(Scanner ler, int leilaoId) {
+		
+		while(true) {
+<span class="nc" id="L394">			System.out.print(&quot;Qual a reputacao a dar no leilao &quot; + leilaoId + &quot; (1-4)?&quot;);</span>
+<span class="nc" id="L395">			int rep = ler.nextInt();</span>
+<span class="nc bnc" id="L396" title="All 4 branches missed.">			if(rep &gt;= 1 &amp;&amp; rep &lt;= 4)</span>
+<span class="nc" id="L397">				return Reputacao.getReputacao(rep);</span>
+<span class="nc" id="L398">			System.out.println(&quot;Reputacao tem que ser entre 1 e 4&quot;);</span>
+<span class="nc" id="L399">		}</span>
+	}
+
+	/**
+	 * Formulario para avaliar o utilizador
+	 *
+	 * @param leilaoId  Id do leilao ...
+	 * @param reputacao ...
+	 * @return 			Reputacao do utilizador
+	 */
+	public Reputacao formularioReputacao(int leilaoId, Reputacao reputacao) {
+<span class="fc" id="L410">		return reputacao;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

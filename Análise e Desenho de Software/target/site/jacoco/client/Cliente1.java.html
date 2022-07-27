@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Cliente1.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Projecto Leilões Online</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">Cliente1.java</span></div><h1>Cliente1.java</h1><pre class="source lang-java linenums">package client;
+
+import business.Reputacao;
+import business.User;
+
+/**
+ * &lt;p&gt;Cliente1 class.&lt;/p&gt;
+ * 
+ * Neste cliente vamos criar 3 utilizadores, em que o utilizador1 cria 1 leilao. Os outros dois licitam.
+ * A um certo momento, ou seja, apos algumas licitacoes (validas ou invalidas), um dos leil�es vai ser encerrado 
+ * (neste caso manualmente, pois as comparacoes sao feitas com tempo real ) e apos isso um dos utilizadores vai avaliar 
+ * o utilizador1 e vai tudo proceder bem com o sistema a retornar o vencedor.
+ * 
+ * @author Grupo12: MadalenaRodrigues_55853, PedroAlmeida_56897, RomuloNogueira_56935
+ * @version $Id: $Id
+ */
+
+<span class="nc" id="L18">public class Cliente1 {</span>
+	
+	/**
+	 * &lt;p&gt;main.&lt;/p&gt;
+	 *
+	 * @param args an array of {@link java.lang.String} objects
+	 */
+	public static void main(String[] args) {
+		
+<span class="nc" id="L27">		User user1 = new User(&quot;Jorge Antunes&quot;); </span>
+		
+<span class="nc" id="L29">		User user2 = new User(&quot;Manuel Freitas&quot;); </span>
+		
+<span class="nc" id="L31">		User user3 = new User(&quot;Catarina Silveira&quot;); </span>
+
+<span class="nc" id="L33">		System.out.println(&quot;============================================&quot;);</span>
+<span class="nc" id="L34">		System.out.println(&quot;Utilizadores envolvidos&quot;);</span>
+<span class="nc" id="L35">		System.out.println(&quot;============================================&quot;);</span>
+<span class="nc" id="L36">		System.out.println(user1.toString());</span>
+<span class="nc" id="L37">		System.out.println(user2.toString());</span>
+<span class="nc" id="L38">		System.out.println(user3.toString());</span>
+		
+<span class="nc" id="L40">		System.out.println(&quot;============================================&quot;);</span>
+<span class="nc" id="L41">		System.out.println(&quot;Cria��o dos Artigo&quot;);</span>
+<span class="nc" id="L42">		System.out.println(&quot;============================================&quot;);</span>
+		
+<span class="nc" id="L44">		int idArtigo1 = user1.criarArtigo(&quot;Cadeira de secret�ria&quot;);</span>
+<span class="nc" id="L45">		int idArtigo2 = user1.criarArtigo(&quot;Rato da Razer&quot;);</span>
+<span class="nc" id="L46">		int idArtigo3 = user2.criarArtigo(&quot;Livro do Jos� Mourinho&quot;);</span>
+<span class="nc" id="L47">		System.out.println();</span>
+<span class="nc" id="L48">		user1.imprimirMeusArtigos(); </span>
+		
+<span class="nc" id="L50">		System.out.println(&quot;============================================&quot;);</span>
+<span class="nc" id="L51">		System.out.println(&quot;Cria��o dos Leil�es&quot;);</span>
+<span class="nc" id="L52">		System.out.println(&quot;============================================&quot;);</span>
+		
+<span class="nc" id="L54">		int idLeilao1  = user1.criarLeilao(&quot;normal&quot;, idArtigo2);</span>
+<span class="nc" id="L55">		int idLeilao2  = user2.criarLeilao(&quot;invertido&quot;, idArtigo3);</span>
+<span class="nc" id="L56">		System.out.println();</span>
+		
+<span class="nc" id="L58">		user1.imprimirMeusLeiloes();</span>
+		
+<span class="nc" id="L60">		System.out.println(&quot;============================================&quot;);</span>
+<span class="nc" id="L61">		System.out.println(&quot;Configura��o de um dos Leil�es&quot;);</span>
+<span class="nc" id="L62">		System.out.println(&quot;============================================&quot;);</span>
+		
+		// Vamos tamb�m demonstrar que e� impossivel configurar um leilao que nao foi esse utilizador a criar
+		
+<span class="nc" id="L66">		user2.configurarLeilao(idLeilao1, &quot;01/07/2022 20:00:00&quot;, 20);</span>
+<span class="nc" id="L67">		user1.configurarLeilao(idLeilao1, &quot;01/07/2022 20:00:00&quot;, 80);</span>
+<span class="nc" id="L68">		System.out.println();</span>
+		
+<span class="nc" id="L70">		user1.imprimirMeusLeiloes();</span>
+		
+<span class="nc" id="L72">		System.out.println(&quot;============================================&quot;);</span>
+<span class="nc" id="L73">		System.out.println(&quot;Tentativa de licita��es que s�o impossiveis de fazer&quot;);</span>
+<span class="nc" id="L74">		System.out.println(&quot;============================================&quot;);</span>
+		
+<span class="nc" id="L76">		System.out.println();</span>
+		
+<span class="nc" id="L78">		user2.licitarLeilao(idLeilao1, 50);</span>
+<span class="nc" id="L79">		user1.licitarLeilao(idLeilao1, 40);</span>
+		
+<span class="nc" id="L81">		System.out.println();</span>
+		
+<span class="nc" id="L83">		System.out.println(&quot;============================================&quot;);</span>
+<span class="nc" id="L84">		System.out.println(&quot;Publicar leil�o&quot;);</span>
+<span class="nc" id="L85">		System.out.println(&quot;============================================&quot;);</span>
+		
+		// Primeiro vamos tentar publicar um leilao nao configurado, pelo que nao vai ser publicado e
+		// De seguida vamos publicar um leilao ja configurado.
+		// Vamos tambem demonstrar que e� impossivel publicar um leilao que nao e criado por esse user
+		
+<span class="nc" id="L91">		user2.publicaLeilao(10);</span>
+<span class="nc" id="L92">		user2.publicaLeilao(idLeilao1);</span>
+<span class="nc" id="L93">		System.out.println();</span>
+		
+<span class="nc" id="L95">		user1.publicaLeilao(idLeilao1);</span>
+<span class="nc" id="L96">		System.out.println();</span>
+<span class="nc" id="L97">		user1.imprimirMeusLeiloes();</span>
+	
+<span class="nc" id="L99">		System.out.println(&quot;============================================&quot;);</span>
+<span class="nc" id="L100">		System.out.println(&quot;Licitar em leil�o&quot;);</span>
+<span class="nc" id="L101">		System.out.println(&quot;============================================&quot;);</span>
+		
+		// Vamos tentar licitar no leilao com o proprio utilizador
+		// Vamos tentar licitar um pre�o menor que o minimo e um menor que o atual
+		// Por fim vamos fazer algumas licitacoes  e mostrar as mudan�as do estado do leilao
+		
+<span class="nc" id="L107">		System.out.println();</span>
+<span class="nc" id="L108">		user1.licitarLeilao(idLeilao1, 90);</span>
+<span class="nc" id="L109">		user2.licitarLeilao(idLeilao1, 60);</span>
+		
+<span class="nc" id="L111">		System.out.println();</span>
+<span class="nc" id="L112">		user2.licitarLeilao(idLeilao1, 100);</span>
+<span class="nc" id="L113">		System.out.println();</span>
+<span class="nc" id="L114">		System.out.println(user1.obtemLeilao(idLeilao1).toString());</span>
+		
+<span class="nc" id="L116">		System.out.println();</span>
+<span class="nc" id="L117">		user3.licitarLeilao(idLeilao1, 90);</span>
+		
+<span class="nc" id="L119">		System.out.println();</span>
+<span class="nc" id="L120">		user3.licitarLeilao(idLeilao1, 150);</span>
+<span class="nc" id="L121">		System.out.println();</span>
+<span class="nc" id="L122">		System.out.println(user1.obtemLeilao(idLeilao1).toString());</span>
+		
+<span class="nc" id="L124">		System.out.println(&quot;============================================&quot;);</span>
+<span class="nc" id="L125">		System.out.println(&quot;Encerrar leil�o&quot;);</span>
+<span class="nc" id="L126">		System.out.println(&quot;============================================&quot;);</span>
+
+		// Uma vez que estamos num script e tudo corre ao mesmo tempo, vamos ter de encerrar o leilao &quot;`a mao&quot; 
+		// para visualizar o encerramento do mesmo.
+
+<span class="nc" id="L131">		user3.encerraLeilao(idLeilao1);</span>
+<span class="nc" id="L132">		user1.encerraLeilao(5);</span>
+<span class="nc" id="L133">		System.out.println();</span>
+		
+<span class="nc" id="L135">		user1.encerraLeilao(idLeilao1);</span>
+		
+<span class="nc" id="L137">		System.out.println();</span>
+		
+<span class="nc" id="L139">		user1.imprimirMeusLeiloes();</span>
+<span class="nc" id="L140">		user1.imprimirMeusArtigos();</span>
+		
+<span class="nc" id="L142">		System.out.println(&quot;============================================&quot;);</span>
+<span class="nc" id="L143">		System.out.println(&quot;Preencher reputa��es&quot;);</span>
+<span class="nc" id="L144">		System.out.println(&quot;============================================&quot;);</span>
+		
+<span class="nc" id="L146">		User vendedor = user1;</span>
+<span class="nc" id="L147">		User comprador = vendedor.obtemLeilao(idLeilao1).getVencedor();</span>
+<span class="nc" id="L148">		Reputacao rep_vendedor = comprador.formularioReputacao(idLeilao1, Reputacao.EXCELENTE);</span>
+<span class="nc" id="L149">		Reputacao rep_comprador = vendedor.formularioReputacao(idLeilao1, Reputacao.SUFICIENTE);</span>
+<span class="nc" id="L150">		System.out.println(&quot;Reputacao atribuida ao vendedor: &quot; + rep_vendedor + &quot;, ao comprador: &quot; + rep_comprador);</span>
+		
+<span class="nc" id="L152">		comprador.adicionaReputacao(rep_comprador);</span>
+<span class="nc" id="L153">		vendedor.adicionaReputacao(rep_vendedor);</span>
+		
+<span class="nc" id="L155">		System.out.println(&quot;Reputa��o atual do vendedor: &quot; + vendedor.obtemReputacao());</span>
+<span class="nc" id="L156">		System.out.println(&quot;Reputa��o atual do comprador: &quot; + comprador.obtemReputacao());</span>
+<span class="nc" id="L157">		System.out.println();</span>
+<span class="nc" id="L158">		user1.arquivaLeilao(idLeilao1);</span>
+<span class="nc" id="L159">		System.out.println();</span>
+<span class="nc" id="L160">		user1.imprimirMeusLeiloes();	</span>
+<span class="nc" id="L161">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

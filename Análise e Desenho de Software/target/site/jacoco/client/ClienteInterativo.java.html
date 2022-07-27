@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClienteInterativo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Projecto Leilões Online</a> &gt; <a href="index.source.html" class="el_package">client</a> &gt; <span class="el_source">ClienteInterativo.java</span></div><h1>ClienteInterativo.java</h1><pre class="source lang-java linenums">package client;
+
+/**
+ * &lt;p&gt;ClienteInterativo class.&lt;/p&gt;
+ *
+ * @author Grupo12: MadalenaRodrigues_55853, PedroAlmeida_56897, RomuloNogueira_56935
+ * @date Maio 2022
+ * @version $Id: $Id
+ */
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+import business.Artigo;
+import business.Reputacao;
+import business.User;
+
+/**
+ * Classe que demonstra o funcionamento do sistema de 
+ * gestao de leiloes de forma interativa atraves da
+ * consola do utilizador
+ */
+<span class="nc" id="L23">public class ClienteInterativo {</span>
+	
+	/**
+	 * &lt;p&gt;lerInteiro.&lt;/p&gt;
+	 *
+	 * @param ler 	 valor introduzido pelo utilizador
+	 * @param prompt mensagem a aparecer no terminal
+	 * @param min    numero minimo a ser apresentado
+	 * @param max    numero maximo a ser apresentado
+	 * @return       valor introduzido no terminal apos validado
+	 */
+	public static int lerInteiro(Scanner ler, String prompt, int min, int max) {
+		
+		while(true) {
+<span class="nc" id="L37">			System.out.print(prompt + &quot; (&quot; + min + &quot;-&quot; + max + &quot;)? &quot;);</span>
+			try {
+<span class="nc" id="L39">				int v = ler.nextInt();</span>
+<span class="nc bnc" id="L40" title="All 4 branches missed.">				if(v &gt;= min &amp;&amp; v &lt;= max)</span>
+<span class="nc" id="L41">					return v;</span>
+<span class="nc" id="L42">				System.out.println(&quot;Valor tem que ser entre &quot; + min + &quot; e &quot; + max);</span>
+			}
+<span class="nc" id="L44">			catch(InputMismatchException ex) {</span>
+<span class="nc" id="L45">				System.out.println(&quot;Tem que ser inteiro&quot;);</span>
+<span class="nc" id="L46">				ler.nextLine();</span>
+<span class="nc" id="L47">			}</span>
+		}
+	}
+	
+	
+	/**
+	 * &lt;p&gt;main.&lt;/p&gt;
+	 *
+	 * @param args an array of {@link java.lang.String} objects
+	 */
+	public static void main(String[] args) {
+		
+<span class="nc" id="L59">		Scanner ler = new Scanner(System.in);</span>
+		
+<span class="nc" id="L61">		System.out.print(&quot;Quantos utilizadores criar? &quot;);</span>
+<span class="nc" id="L62">		int n = ler.nextInt();</span>
+		
+<span class="nc bnc" id="L64" title="All 2 branches missed.">		while (n &lt; 2) {</span>
+<span class="nc" id="L65">			System.out.println(&quot;T�m que existir pelo menos 2 utilizadores&quot;);</span>
+<span class="nc" id="L66">			System.out.print(&quot;Quantos utilizadores criar? &quot;);</span>
+<span class="nc" id="L67">			n = ler.nextInt();</span>
+		}	
+
+<span class="nc" id="L70">		User users[] = new User[n];</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		for(int i = 0; i &lt; n; i++) {</span>
+<span class="nc" id="L72">			int u = i + 1;</span>
+<span class="nc" id="L73">			System.out.print(&quot;Qual o nome do utilizador &quot; + u + &quot;? &quot;);</span>
+<span class="nc" id="L74">			String nome = ler.next();</span>
+<span class="nc" id="L75">			users[i] = new User(nome);</span>
+		}
+//		int contArtigos = 0;
+//		int indisponiveis = 0;
+		while(true) {
+<span class="nc" id="L80">			int vendedor_i = lerInteiro(ler, &quot;Qual o vendedor&quot;, 1, n);</span>
+<span class="nc" id="L81">			User vendedor = users[vendedor_i-1];</span>
+	
+			String tipo_leilao;
+			while(true) {
+<span class="nc" id="L85">				System.out.print(&quot;Qual o tipo de leilao (cego/invertido/normal)? &quot;);</span>
+<span class="nc" id="L86">				tipo_leilao = ler.next();</span>
+<span class="nc bnc" id="L87" title="All 6 branches missed.">				if(tipo_leilao.equals(&quot;cego&quot;) || tipo_leilao.equals(&quot;invertido&quot;) || tipo_leilao.equals(&quot;normal&quot;))</span>
+<span class="nc" id="L88">					break;</span>
+				else
+<span class="nc" id="L90">					System.out.println(&quot;Tipo de leilao invalido&quot;);</span>
+			}
+			
+	//		vendedor.criaArtigo(&quot;Abajour dos anos 50&quot;);
+	//		vendedor.imprimirMeusArtigos();
+	
+	//		System.out.print(&quot;Criar artigo? (0 ou 1)? &quot;);
+	//		if(ler.nextInt() == 1)
+	//			System.out.print(&quot;Insira a descri��o do artigo: &quot;);
+	//			String descricao = ler.next();
+	//			vendedor.criaArtigo(descricao);
+	//		vendedor.imprimirMeusArtigos();	
+	//		System.out.print(&quot;Qual o artigo? &quot;);
+	//		int artigo = ler.nextInt();
+	//		int id_leilao = vendedor.criarLeilao(tipo_leilao, artigo);
+			
+<span class="nc bnc" id="L106" title="All 2 branches missed.">			if(lerInteiro(ler, &quot;Criar artigo&quot;, 0, 1) == 1) {</span>
+<span class="nc" id="L107">				System.out.print(&quot;Insira a descri��o do artigo: &quot;);</span>
+<span class="nc" id="L108">				String descricao = ler.next();</span>
+<span class="nc" id="L109">				vendedor.criarArtigo(descricao);</span>
+//				contArtigos++;
+	//			System.out.print(&quot;Insira a descri��o do artigo: &quot;);
+	//			String descricao2 = ler.next();
+	//			vendedor.criaArtigo(descricao2);
+	//			String str=vendedor.obtemArtigos();
+				
+	//			for(String subString: str.split(&quot;,&quot;)){
+	//			   contArtigos++;
+	//			}
+<span class="nc" id="L119">			} else {</span>
+<span class="nc" id="L120">				vendedor.imprimirMeusArtigos();	</span>
+				
+			}
+	//		System.out.println(&quot;lista de artigos: &quot; + vendedor.obtemArtigos());
+	//		System.out.println(&quot;numero de artigos: &quot; + contArtigos);
+	//		int var = 0;
+	//		while (contArtigos == 0 | var == 1) {
+			
+//			for (Artigo art : vendedor.obtemArtigos()) {
+//			    if(art.getIdArtigo() == -1) {
+//			    	indisponiveis ++;
+//			    }
+//			    	
+//			}
+			
+<span class="nc" id="L135">			int contArtigos = 0;</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">			for (int i = 0; i &lt; vendedor.obtemArtigos().size(); i++) {</span>
+<span class="nc" id="L137">				contArtigos++;</span>
+			}
+			
+//			while (contArtigos == 0 || indisponiveis==vendedor.obtemArtigos().size()) {
+<span class="nc bnc" id="L141" title="All 2 branches missed.">			while (contArtigos == 0) {</span>
+<span class="nc" id="L142">				System.out.println(&quot;N�o tem artigos dispon�veis&quot;);</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">				if(lerInteiro(ler, &quot;Criar artigo&quot;, 0, 1) == 1) {</span>
+<span class="nc" id="L144">					System.out.print(&quot;Insira a descri��o do artigo: &quot;);</span>
+<span class="nc" id="L145">					String descricao = ler.next();</span>
+<span class="nc" id="L146">					vendedor.criarArtigo(descricao);</span>
+//					contArtigos++;
+	//				System.out.print(&quot;Criar mais artigos? (0 ou 1)? &quot;);
+	//				var = ler.nextInt();
+	//				continue;
+<span class="nc" id="L151">					contArtigos++;</span>
+<span class="nc" id="L152">				} else {</span>
+					continue;	
+				}
+				
+			}
+			
+			
+<span class="nc" id="L159">			int var = 1;</span>
+<span class="nc bnc" id="L160" title="All 2 branches missed.">			while (var == 1) {</span>
+<span class="nc" id="L161">				var = lerInteiro(ler, &quot;Criar mais artigos&quot;, 0, 1);</span>
+<span class="nc" id="L162">				System.out.println(&quot;\n&quot;);</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">				if(var == 1) { </span>
+<span class="nc" id="L164">					System.out.print(&quot;Insira a descri��o do artigo: &quot;);</span>
+<span class="nc" id="L165">					String descricao = ler.next();</span>
+<span class="nc" id="L166">					vendedor.criarArtigo(descricao);</span>
+<span class="nc" id="L167">					contArtigos++;</span>
+<span class="nc" id="L168">				}else {</span>
+					break;
+				}
+			}	
+			
+//			System.out.print(&quot;contArtigos: &quot; + contArtigos);
+			
+<span class="nc" id="L175">			System.out.print(&quot;Os seus artigos: &quot;);</span>
+<span class="nc" id="L176">			vendedor.imprimirMeusArtigos();	</span>
+<span class="nc" id="L177">			System.out.print(&quot;Qual o artigo a leiloar? &quot;);</span>
+<span class="nc" id="L178">			int artigo = ler.nextInt();</span>
+//			while (artigo &gt;= contArtigos) {
+//				System.out.print(&quot;O artigo n�o existe &quot;);
+//				System.out.println(&quot;\n&quot;);
+//				System.out.print(&quot;Qual o artigo a leiloar? &quot;);
+//				artigo = ler.nextInt();
+//			}	
+<span class="nc bnc" id="L185" title="All 4 branches missed.">			while (artigo &lt; 0 || artigo &gt;= contArtigos) {</span>
+//				System.out.print(&quot;contArtigos: &quot; + contArtigos);
+<span class="nc" id="L187">				System.out.print(&quot;O artigo n�o existe &quot;);</span>
+<span class="nc" id="L188">				System.out.println(&quot;\n&quot;);</span>
+<span class="nc" id="L189">				System.out.print(&quot;Qual o artigo a leiloar? &quot;);</span>
+<span class="nc" id="L190">				artigo = ler.nextInt();</span>
+			}	
+<span class="nc" id="L192">			int id_leilao = vendedor.criarLeilao(tipo_leilao, artigo);</span>
+
+<span class="nc" id="L194">			System.out.print(&quot;Data fecho (dd/MM/yyyy)? &quot;);</span>
+<span class="nc" id="L195">			String data_fecho = ler.next();</span>
+<span class="nc" id="L196">			System.out.print(&quot;Hora fecho (hh:mm:ss)? &quot;);</span>
+<span class="nc" id="L197">			String hora_fecho = ler.next();</span>
+<span class="nc" id="L198">			String data = data_fecho + &quot; &quot; + hora_fecho;</span>
+	//		System.out.print(data);
+	//      String data_fecho = ler.nextLine();
+<span class="nc" id="L201">			System.out.print(&quot;Preco base? &quot;);</span>
+<span class="nc" id="L202">			int preco_base = ler.nextInt();</span>
+<span class="nc" id="L203">			vendedor.configurarLeilao(id_leilao, data, preco_base);</span>
+<span class="nc" id="L204">			vendedor.publicaLeilao(id_leilao);</span>
+			
+			while(true) {
+<span class="nc" id="L207">				int licitador_i = lerInteiro(ler, &quot;Quem licita&quot;, 1, n);</span>
+<span class="nc bnc" id="L208" title="All 4 branches missed.">				if(licitador_i-1 &lt; 0 || licitador_i &gt;= n+1) {</span>
+<span class="nc" id="L209">					System.out.println(&quot;Utilizador nao existe&quot;);</span>
+<span class="nc" id="L210">					continue;</span>
+				}
+				
+<span class="nc" id="L213">				System.out.print(&quot;Quanto quer licitar? &quot;);</span>
+<span class="nc" id="L214">				int preco = ler.nextInt();</span>
+				
+<span class="nc" id="L216">				users[licitador_i-1].licitarLeilao(id_leilao, preco);</span>
+				
+<span class="nc bnc" id="L218" title="All 2 branches missed.">				if(lerInteiro(ler, &quot;Continuar a licitar&quot;, 0, 1) == 0)</span>
+<span class="nc" id="L219">					break;</span>
+<span class="nc" id="L220">			}</span>
+			
+<span class="nc" id="L222">			vendedor.encerraLeilao(id_leilao);</span>
+			
+<span class="nc" id="L224">			User comprador = vendedor.obtemLeilao(id_leilao).getVencedor();</span>
+<span class="nc bnc" id="L225" title="All 2 branches missed.">			if(comprador != null) {</span>
+				// pedir e dar reputacao, caso haja um vencedor
+<span class="nc" id="L227">				System.out.println(&quot;Vencedor do leilao: &quot; + comprador.obtemNome());</span>
+				
+<span class="nc" id="L229">				System.out.println(&quot;Comprador, o que achou do vendedor?&quot;);</span>
+<span class="nc" id="L230">				Reputacao rep_vendedor = comprador.formularioReputacaoInterativo(ler, id_leilao);</span>
+		
+<span class="nc" id="L232">				System.out.println(&quot;Vendedor, o que achou do comprador?&quot;);</span>
+<span class="nc" id="L233">				Reputacao rep_comprador = vendedor.formularioReputacaoInterativo(ler, id_leilao);</span>
+				
+<span class="nc" id="L235">				comprador.adicionaReputacao(rep_comprador);</span>
+<span class="nc" id="L236">				vendedor.adicionaReputacao(rep_vendedor);</span>
+				
+<span class="nc" id="L238">				System.out.println(&quot;Reputa��o atual do comprador: &quot; + comprador.obtemReputacao());</span>
+<span class="nc" id="L239">				System.out.println(&quot;Reputa��o atual do vendedor: &quot; + vendedor.obtemReputacao());</span>
+			}
+			
+			
+<span class="nc bnc" id="L243" title="All 2 branches missed.">			if(lerInteiro(ler, &quot;Come�ar novo leil�o&quot;, 0, 1) == 0)</span>
+<span class="nc" id="L244">				break;</span>
+<span class="nc" id="L245">		}</span>
+<span class="nc" id="L246">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

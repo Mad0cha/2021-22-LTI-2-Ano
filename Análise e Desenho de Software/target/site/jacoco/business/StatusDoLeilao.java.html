@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StatusDoLeilao.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Projecto Leilões Online</a> &gt; <a href="index.source.html" class="el_package">business</a> &gt; <span class="el_source">StatusDoLeilao.java</span></div><h1>StatusDoLeilao.java</h1><pre class="source lang-java linenums">package business;
+
+/**
+ * &lt;p&gt;StatusDoLeilao class.&lt;/p&gt;
+ *
+ * @author Grupo12: MadalenaRodrigues_55853, PedroAlmeida_56897, RomuloNogueira_56935
+ * @version $Id: $Id
+ */
+
+/**
+ * Enumerado com as opcoes possiveis para o estado de um leilao 
+ */
+<span class="fc" id="L13">public enum StatusDoLeilao {</span>
+	/**
+	 * Criado (quando um utilizador criou com sucesso um leilao)
+	 */
+<span class="fc" id="L17">	Criado, </span>
+	/**
+	 * Configurado (quando um utilizador configurou com sucesso um leilao)
+	 */
+<span class="fc" id="L21">	Configurado, </span>
+	/**
+	 * Decorrer (quando o leilao esta� valido e ainda nao chegou a data de 
+	 * 			 fim e o seu criador nao o cancelou) 
+	 */
+<span class="fc" id="L26">	Decorrer, </span>
+	/**
+	 * Terminado (quando passa a data de fim definida para o leilao ou quando 
+	 *            este e' cancelado pelo seu criador)
+	 */
+<span class="fc" id="L31">	Terminado, </span>
+	/**
+	 * Arquivado (quando um leilao e' fechado)
+	 */
+<span class="fc" id="L35">	Arquivado, </span>
+	/**
+	 * Inv�lido (quando por uma razao o leilao deixa de ser valido)
+	 */
+<span class="fc" id="L39">	Inv�lido</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
