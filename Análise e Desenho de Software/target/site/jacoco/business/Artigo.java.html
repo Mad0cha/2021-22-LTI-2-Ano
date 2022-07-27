@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Artigo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Projecto Leilões Online</a> &gt; <a href="index.source.html" class="el_package">business</a> &gt; <span class="el_source">Artigo.java</span></div><h1>Artigo.java</h1><pre class="source lang-java linenums">package business;
+
+/**
+ * &lt;p&gt;Artigo class.&lt;/p&gt;
+ *
+ * @author Grupo12: MadalenaRodrigues_55853, PedroAlmeida_56897, RomuloNogueira_56935
+ * @version $Id: $Id
+ */
+
+/**
+ * Classe que gere um artigo
+ *
+ */
+public class Artigo {
+
+	private User user;
+	private int idArtigo;
+	private String descricao;
+	
+	
+	/**
+	 * Construtor de um artigo.
+	 *
+	 * @param descricao Descri�ao do artigo
+	 * @param user      User associado ao artigo
+	 * @param idArtigo  Id associado ao artigo
+	 */
+<span class="fc" id="L28">	public Artigo(String descricao, User user, int idArtigo) {</span>
+		
+<span class="fc" id="L30">		this.user = user;</span>
+<span class="fc" id="L31">		this.idArtigo = idArtigo;</span>
+<span class="fc" id="L32">		this.descricao = descricao;</span>
+<span class="fc" id="L33">	}</span>
+	
+	
+	/**
+	 * Os seguintes metodos sao getters e servem para obter 
+	 * informacao relativa ao artigo
+	 */
+	
+	
+	/**
+	 * Metodo para obter o utilizador associado ao artigo
+	 *
+	 * @return o User
+	 */
+<span class="nc" id="L47">	public User obtemUser() { return this.user; }</span>
+	
+	
+	/**
+	 * Metodo para obter o id do artigo
+	 *
+	 * @return o id do artigo
+	 */
+<span class="fc" id="L55">	public int obtemId() { return this.idArtigo; }</span>
+	
+	
+	/**
+	 * Metodo para obter a descricao do artigo
+	 *
+	 * @return String correspondente `a descricao do artigo
+	 */
+<span class="nc" id="L63">	public String obtemDescricao() { return this.descricao; }</span>
+	
+	
+	/**
+	 * Metodo que invalida um artigo atribuindo-lhe o id de '-1'
+	 */
+	public void invalidaArtigo() {
+		
+<span class="fc" id="L71">		this.idArtigo = -1;</span>
+<span class="fc" id="L72">	}</span>
+	
+	
+	/**
+	 * Metodo que altera o id de um artigo
+	 *
+	 * @param i novo id
+	 */
+	public void alteraId(int i) {
+		
+<span class="nc" id="L82">		this.idArtigo = i;</span>
+<span class="nc" id="L83">	}</span>
+	
+
+	/**
+	 * Metodo que devolve uma representacao textual do artigo
+	 *
+	 * @return Informacao sobre um artigo
+	 */
+	public String toString() {
+		
+<span class="nc" id="L93">		StringBuilder s = new StringBuilder();</span>
+<span class="nc" id="L94">		s.append(&quot;Artigo pertencente a: &quot; + this.user.obtemNome() + &quot;\n&quot;);</span>
+<span class="nc" id="L95">		s.append(&quot;Id do artigo: &quot; + this.idArtigo + &quot;\n&quot;);</span>
+<span class="nc" id="L96">		s.append(&quot;Descrição do artigo: \n&quot;);</span>
+<span class="nc" id="L97">		s.append(this.descricao);</span>
+<span class="nc" id="L98">		return s.toString();</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

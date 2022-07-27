@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Composto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Projecto Leilões Online</a> &gt; <a href="index.source.html" class="el_package">business</a> &gt; <span class="el_source">Composto.java</span></div><h1>Composto.java</h1><pre class="source lang-java linenums">package business;
+
+/**
+ * &lt;p&gt;Composto class.&lt;/p&gt;
+ *
+ * @author Grupo12: MadalenaRodrigues_55853, PedroAlmeida_56897, RomuloNogueira_56935
+ * @version $Id: $Id
+ */
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Classe que extende um artigo 
+ *
+ */
+public class Composto extends Artigo {
+	
+<span class="nc" id="L19">	private List&lt;Artigo&gt; artigos = new ArrayList&lt;Artigo&gt;();</span>
+	
+	/**
+	 * Construtor de um artigo composto
+	 *
+	 * @param descricao Descri��o do artigo
+	 * @param a         Lista de artigos que compoe o artigo composto
+	 * @param user User associado ao artigo
+	 * @param idArtigo  id associado ao artigo
+	 */
+	public Composto(String descricao, List&lt;Artigo&gt; a, User user, int idArtigo) {
+		
+<span class="nc" id="L31">		super(descricao, user, idArtigo);</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">		for (int i = 0; i &lt; a.size(); i++) {</span>
+<span class="nc" id="L33">			this.artigos.add(a.get(i));</span>
+		}
+<span class="nc" id="L35">	}</span>
+	
+
+	/**
+	 * Adiciona o artigo a `a lista de artigos
+	 *
+	 * @param a   Artigo a adicionar
+	 */
+	public void adicionar(Artigo a) {
+		
+<span class="nc" id="L45">		this.artigos.add(a);</span>
+<span class="nc" id="L46">	}</span>
+	
+	
+	/**
+	 * Remove o artigo a da lista de artigos
+	 *
+	 * @param a   Artigo a remover
+	 */
+	public void remover(Artigo a) {
+		
+<span class="nc" id="L56">		this.artigos.remove(a);</span>
+<span class="nc" id="L57">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
