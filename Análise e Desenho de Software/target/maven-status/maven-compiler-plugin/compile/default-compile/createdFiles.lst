@@ -1,0 +1,14 @@
+business\HistoricoDeLeiloes.class
+business\Reputacao.class
+client\ClienteInterativo.class
+business\Artigo.class
+business\Leilao.class
+business\TipoDeLeilao.class
+client\Cliente1.class
+client\Cliente2.class
+business\StatusDoLeilao.class
+business\Individual.class
+business\CatalogoDeLeiloes.class
+business\Composto.class
+business\Licitacao.class
+business\User.class

@@ -1,0 +1,8 @@
+business\DataLeilaoTest.class
+business\LicitarLeilaoTest.class
+business\CriarLeilaoTest.class
+business\EncerraLeilaoTest.class
+business\UserTest.class
+business\ConfigurarLeilaoTest.class
+business\FormularioReputacaoTest.class
+business\MediaReputacaoTest.class

@@ -1,0 +1,62 @@
+@options
+@packages
+@argfile
+-classpath
+'C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/target/classes;C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/target/test-classes;C:/Users/Madalena/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar;C:/Users/Madalena/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;C:/Users/Madalena/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar'
+-encoding
+'Cp1252'
+-protected
+-source
+'1.8'
+-sourcepath
+'C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/src/test/java'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/target/site/testapidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Projecto Leilões Online 1.0.0-SNAPSHOT Test API'
+-link
+'../apidocs'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Projecto Leilões Online 1.0.0-SNAPSHOT Test API'
+business
+'C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/src/test/java/business/ConfigurarLeilaoTest.java'
+'C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/src/test/java/business/CriarLeilaoTest.java'
+'C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/src/test/java/business/DataLeilaoTest.java'
+'C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/src/test/java/business/EncerraLeilaoTest.java'
+'C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/src/test/java/business/FormularioReputacaoTest.java'
+'C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/src/test/java/business/LicitarLeilaoTest.java'
+'C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/src/test/java/business/MediaReputacaoTest.java'
+'C:/Users/Madalena/Desktop/ads_grupo_12/ads_grupo_12/leiloesOnline/src/test/java/business/UserTest.java'
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\classes = 1654200758593
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\test-classes = 1654200758754
+C:\Users\Madalena\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar = 1652194576815
+C:\Users\Madalena\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar = 1652194122070
+C:\Users\Madalena\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar = 1652194118986
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\src\test\java = 1654200652339
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\allclasses-index.html = 1654200784760
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\allpackages-index.html = 1654200784762
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\element-list = 1654200784688
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\help-doc.html = 1654200784792
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\index-all.html = 1654200784785
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\index.html = 1654200784787
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\jquery-ui.overrides.css = 1654200784827
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\member-search-index.js = 1654200784768
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\module-search-index.js = 1654200784764
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\overview-tree.html = 1654200784744
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\package-search-index.js = 1654200784765
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\script.js = 1654200784796
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\search.js = 1654200784799
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\stylesheet.css = 1654200784794
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\tag-search-index.js = 1654200784769
+C:\Users\Madalena\Desktop\ads_grupo_12\ads_grupo_12\leiloesOnline\target\site\testapidocs\type-search-index.js = 1654200784767
